@@ -7,8 +7,6 @@
   <title>Welcome</title>
 </head>
 <body>
-  <center>
-    @yield('add-form')
-  </center>
+  @yield('add-form')
 </body>
 </html>

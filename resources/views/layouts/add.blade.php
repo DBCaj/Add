@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Add Form</title>
 </head>
@@ -11,53 +11,44 @@
   @section('add-form')
   
   @if(Session::get('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-      {{ Session::get('success') }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
+    {{ Session::get('success') }}
   @endif
-  
-  
-  <div class="card">
-    <div class="card-header">
-      Add User Form
-    </div>
-    <div class="card-body">
+    
+  <h3>Add User Form</h3>
+   
       <form action="{{ route('user.add.auth') }}" method="POST">
         @csrf
-        <div class="form-group">
+        <div>
           <label for="name">Name: </label>
-          <input type="text" name="name" value="{{ old('name') }}" class="form-control" required autofocus>
+          <input type="text" name="name" value="{{ old('name') }}" required autofocus>
           @error('name')
             <span style="color:red">{{ $message }}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <div>
           <label for="email">Email: </label>
-          <input type="email" name="email" value="{{ old('email') }}" class="form-control" required>
+          <input type="email" name="email" value="{{ old('email') }}" required>
           @error('email')
             <span style="color:red">{{ $message }}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <div>
           <label for="password">Password: </label>
-          <input type="password" name="password" value="{{ old('password') }}" class="form-control" required>
+          <input type="password" name="password" value="{{ old('password') }}" required>
           @error('password')
             <span style="color:red">{{ $message }}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <div>
           <label for="password_confirmation">Confirm Password: </label>
-          <input type="password" name="password_confirmation" class="form-control" required>
+          <input type="password" name="password_confirmation" required>
           @error('password_confirmation')
             <span style="color:red">{{ $message }}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <div>
           <label for="role">Role: </label>
-          <select name="role" value="" class="form-control">
+          <select name="role" value="">
             <option value="user" selected>User</option>
             <option value="admin">Admin</option>
           </select>
@@ -65,14 +56,12 @@
             <span style="color:red">{{ $message }}</span>
           @enderror
         </div>
-        <div class="form-group">
+        <div>
           <button type="reset" class="btn btn-danger">Clear</button>
-          <button type="submit" class="btn btn-success" onclick="return confirm('Are you sure you want to proceed?')">Submit</button>
+          <button type="submit" onclick="return confirm('Are you sure you want to proceed?')">Submit</button>
         </div>
-      </form>
-    </div>
-  </div>
-  
+      </form>    
+    
   @stop
 </body>
 </html>

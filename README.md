@@ -3,9 +3,7 @@ Important Files:
 
 
 
-resources/views/layouts/add.blade.php
-
-resources/views/layouts/main.blade.php
+resources/views/layouts/*
 
 database/seeders/DatabaseSeeder.php
 
